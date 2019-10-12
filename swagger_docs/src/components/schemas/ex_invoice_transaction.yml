@@ -1,0 +1,149 @@
+---
+components:
+  schemas:
+    ExInvoiceTransaction:
+      required:
+      - id
+      - office_id
+      - office_member_id
+      - ex_report_id
+      - number
+      - uniq_value
+      - quantity
+      - total_value
+      - excise_value
+      - jpyrate
+      - use_custom_jpy_rate
+      properties:
+        id:
+          type: string
+          uniqueItems: true
+          maxLength: 40
+          description: 支払明細id
+        office_id:
+          type: string
+          maxLength: 40
+          description: 事業所id
+        office_member_id:
+          type: string
+          maxLength: 40
+          description: メンバーid
+        ex_report_id:
+          type: string
+          maxLength: 40
+          description: 申請id
+        ex_destination_id:
+          type: string
+          maxLength: 40
+          description: 支払先id
+        dept_id:
+          type: string
+          maxLength: 40
+          description: 部門id
+        project_code_id:
+          type: string
+          maxLength: 40
+          description: プロジェクトid
+        ex_item_id:
+          type: string
+          maxLength: 40
+          description: 経費科目id
+        dr_excise_id:
+          type: string
+          maxLength: 40
+          description: 税区分id
+        cr_item_id:
+          type: string
+          maxLength: 40
+          description: 貸方勘定科目id
+        cr_sub_item_id:
+          maxLength: 40
+          description: 貸方補助科目id
+          nullable: true
+          type: string
+        number:
+          type: integer
+          minimum: 1
+          maximum: 4294967295
+          description: 明細番号
+        name:
+          type: string
+          minLength: 1
+          maxLength: 100
+          description: 品目
+        unit_value:
+          type: float
+          minimum: 0.001
+          maximum: 999999999999.999
+          description: 単価
+        quantity:
+          type: float
+          minimum: 0.001
+          maximum: 999999999999.999
+          description: 数量
+        total_value:
+          type: integer
+          minimum: 1
+          maximum: 4294967295
+          description: 合計金額
+        excise_value:
+          type: integer
+          minimum: 1
+          maximum: 4294967295
+          description: 消費税額
+        has_withholding_income_tax:
+          type: boolean
+          default: false
+          description: 源泉徴収有無
+        withholding_income_tax_value:
+          type: integer
+          minimum: 1
+          maximum: 4294967295
+          description: 源泉徴収税額
+        memo:
+          type: string
+          maxLength: 1000
+          description: メモ
+        currency:
+          type: string
+          minLength: 3
+          maxLength: 3
+          default: JPY
+          example: USD
+          description: 通貨
+        jpyrate:
+          type: float
+          default: 1.0e-06
+          example: 99999.999999
+          description: 為替レート
+        use_custom_jpy_rate:
+          type: boolean
+          default: false
+          example: false
+          description: 為替レートを手動設定するかどうか
+        created_at:
+          type: datetime
+          example: 2019-10-04 18:44:41.148000000 +09:00
+          description: 登録日時
+        updated_at:
+          type: datetime
+          example: 2019-10-04 18:44:41.148000000 +09:00
+          description: 更新日時
+        office_member:
+          "$ref": "#/components/schemas/OfficeMember"
+        ex_report:
+          "$ref": "#/components/schemas/ExReport"
+        ex_destination:
+          "$ref": "#/components/schemas/ExDestination"
+        dept:
+          "$ref": "#/components/schemas/Dept"
+        project_code:
+          "$ref": "#/components/schemas/ProjectCode"
+        ex_item:
+          "$ref": "#/components/schemas/ExItem"
+        dr_excise:
+          "$ref": "#/components/schemas/Excise"
+        cr_item:
+          "$ref": "#/components/schemas/Item"
+        cr_sub_item:
+          "$ref": "#/components/schemas/SubItem"

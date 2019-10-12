@@ -1,0 +1,30 @@
+---
+components:
+  schemas:
+    Office:
+      required:
+      - id
+      properties:
+        id:
+          type: string
+          uniqueItems: true
+          maxLength: 40
+          description: 事業所id
+        identification_code:
+          type: string
+          maxLength: 8
+          minLength: 8
+          example: '09999999'
+          uniqueItems: true
+          description: 事業所番号
+        office_type_id:
+          type: integer
+          enum:
+          - 1
+          - 2
+          example: 2
+          description: 事業所種別。1は個人、2は法人
+        name:
+          type: string
+          maxLength: 40
+          description: 事業所名

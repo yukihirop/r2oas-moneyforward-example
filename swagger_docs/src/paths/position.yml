@@ -1,0 +1,211 @@
+---
+paths:
+  "/api/external/v1/offices/{office_id}/positions":
+    get:
+      description: 役職一覧を返す
+      summary: 役職一覧を返す
+      operationId: find_positions
+      tags:
+      - position
+      parameters:
+      - "$ref": "#/components/parameters/office_id"
+      - "$ref": "#/components/parameters/page"
+      responses:
+        '200':
+          description: 成功
+          content:
+            application/json:
+              schema:
+                properties:
+                  positions:
+                    type: array
+                    items:
+                      "$ref": "#/components/schemas/Position"
+        '401':
+          description: 認証エラー
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/ErrorModel"
+        '403':
+          description: 権限エラー
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/ErrorModel"
+        '404':
+          description: 未検出エラー
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/ErrorModel"
+      security:
+      - mf_expense_oauth:
+        - office_setting:write
+    post:
+      description: 役職を作成する
+      summary: 役職を作成する
+      operationId: create_position
+      tags:
+      - position
+      parameters:
+      - "$ref": "#/components/parameters/office_id"
+      requestBody:
+        "$ref": "#/components/requestBodies/create_positionPosition"
+      responses:
+        '200':
+          description: 成功
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/Position"
+        '401':
+          description: 認証エラー
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/ErrorModel"
+        '403':
+          description: 権限エラー
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/ErrorModel"
+        '404':
+          description: 未検出エラー
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/ErrorModel"
+        '422':
+          description: バリデーションエラー
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/ErrorModel"
+      security:
+      - mf_expense_oauth:
+        - office_setting:write
+  "/api/external/v1/offices/{office_id}/positions/{id}":
+    get:
+      description: 役職を返す
+      summary: 役職を返す
+      operationId: find_position
+      tags:
+      - position
+      parameters:
+      - "$ref": "#/components/parameters/office_id"
+      - "$ref": "#/components/parameters/id"
+      - "$ref": "#/components/parameters/page"
+      responses:
+        '200':
+          description: 成功
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/Position"
+        '401':
+          description: 認証エラー
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/ErrorModel"
+        '403':
+          description: 権限エラー
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/ErrorModel"
+        '404':
+          description: 未検出エラー
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/ErrorModel"
+      security:
+      - mf_expense_oauth:
+        - office_setting:write
+    put:
+      description: 役職を更新する
+      summary: 役職を更新する
+      operationId: update_position
+      tags:
+      - position
+      parameters:
+      - "$ref": "#/components/parameters/office_id"
+      - "$ref": "#/components/parameters/id"
+      requestBody:
+        "$ref": "#/components/requestBodies/create_positionPosition"
+      responses:
+        '200':
+          description: 成功
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/Position"
+        '401':
+          description: 認証エラー
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/ErrorModel"
+        '403':
+          description: 権限エラー
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/ErrorModel"
+        '404':
+          description: 未検出エラー
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/ErrorModel"
+        '422':
+          description: バリデーションエラー
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/ErrorModel"
+      security:
+      - mf_expense_oauth:
+        - office_setting:write
+    delete:
+      description: 役職を削除する
+      summary: 役職を削除する
+      operationId: delete_position
+      tags:
+      - position
+      parameters:
+      - "$ref": "#/components/parameters/office_id"
+      - "$ref": "#/components/parameters/id"
+      responses:
+        '204':
+          description: 成功
+        '401':
+          description: 認証エラー
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/ErrorModel"
+        '403':
+          description: 権限エラー
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/ErrorModel"
+        '404':
+          description: 未検出エラー
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/ErrorModel"
+        '422':
+          description: バリデーションエラー
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/ErrorModel"
+      security:
+      - mf_expense_oauth:
+        - office_setting:write

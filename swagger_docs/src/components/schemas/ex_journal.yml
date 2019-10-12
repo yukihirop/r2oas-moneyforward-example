@@ -1,0 +1,24 @@
+---
+components:
+  schemas:
+    ExJournal:
+      properties:
+        office_id:
+          type: string
+          maxLength: 40
+          description: 事業所id
+        recognized_at:
+          example: 2019-10-04
+          description: 取引日
+          nullable: true
+          type: date
+        memo:
+          maxLength: 1000
+          description: メモ
+          nullable: true
+          type: string
+        ex_journal_branches:
+          type: array
+          description: 仕訳行
+          items:
+            "$ref": "#/components/schemas/ExJournalBranch"

@@ -1,0 +1,12 @@
+---
+components:
+  requestBodies:
+    create_deptDept:
+      content:
+        application/json:
+          schema:
+            properties:
+              dept:
+                "$ref": "#/components/schemas/DeptInput"
+      description: 部門のパラメータ
+      required: true

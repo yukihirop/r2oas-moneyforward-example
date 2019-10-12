@@ -1,0 +1,41 @@
+---
+components:
+  schemas:
+    ExItem:
+      required:
+      - id
+      properties:
+        id:
+          type: string
+          uniqueItems: true
+          maxLength: 40
+          description: 経費科目id
+        name:
+          type: string
+          maxLength: 40
+          uniqueItems: true
+          example: 経費科目名称
+          description: 経費科目名称
+        code:
+          type: string
+          uniqueItems: true
+          maxLength: 50
+          description: コード
+        item_id:
+          type: string
+          maxLength: 40
+          description: 勘定科目id
+        sub_item_id:
+          type: string
+          maxLength: 40
+          description: 補助科目id
+        default_excise_id:
+          type: string
+          maxLength: 40
+          description: デフォルト税区分id
+        item:
+          "$ref": "#/components/schemas/Item"
+        sub_item:
+          "$ref": "#/components/schemas/SubItem"
+        default_dr_excise:
+          "$ref": "#/components/schemas/Excise"

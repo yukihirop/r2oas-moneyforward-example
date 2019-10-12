@@ -1,0 +1,72 @@
+---
+components:
+  schemas:
+    ExTransactionCreateInput:
+      required:
+      - value
+      - recognized_at
+      - remark
+      - ex_item_id
+      properties:
+        remark:
+          type: string
+          maxLength: 100
+          description: 支払先・内容
+        recognized_at:
+          type: date
+          description: 日付
+        value:
+          type: float
+          minimum: 0.001
+          maximum: 999999999999.999
+          description: 金額
+        memo:
+          type: string
+          maxLength: 800
+          description: メモ
+        report_number:
+          type: string
+          maxLength: 50
+          description: 事前申請番号
+        jpyrate:
+          type: float
+          default: 1.0e-06
+          example: 99999.999999
+          description: 為替レート
+        currency:
+          type: string
+          minLength: 3
+          maxLength: 3
+          default: JPY
+          example: USD
+          description: 通貨
+        use_custom_jpy_rate:
+          type: boolean
+          default: false
+          example: false
+          description: 為替レートを手動設定するかどうか
+        ex_item_id:
+          type: string
+          maxLength: 40
+          description: 経費科目id
+        dr_excise_id:
+          type: string
+          maxLength: 40
+          description: 税区分id
+        dept_id:
+          type: string
+          maxLength: 40
+          description: 部門id
+        project_code_id:
+          type: string
+          maxLength: 40
+          description: プロジェクトid
+        cr_item_id:
+          type: string
+          maxLength: 40
+          description: 貸方勘定科目id
+        cr_sub_item_id:
+          maxLength: 40
+          description: 貸方補助科目id
+          nullable: true
+          type: string

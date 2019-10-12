@@ -1,0 +1,37 @@
+---
+components:
+  schemas:
+    ExReportType:
+      required:
+      - id
+      properties:
+        id:
+          type: string
+          uniqueItems: true
+          maxLength: 40
+          description: 申請種別id
+        name:
+          type: string
+          maxLength: 100
+          description: 申請種別名称
+          example: 経費申請
+        use_ex_transaction_reserves:
+          type: boolean
+          default: false
+          example: false
+          description: 明細を添付するかどうかのフラグ
+        use_transaction_action_after_approval:
+          type: string
+          enum:
+          - transfer_to_ex_transaction
+          - create_journal
+          - none
+          default: none
+          example: none
+          description: '明細を添付した場合に申請承認後の処理。transfer_to_ex_transaction: 立替の経費明細にコピー,
+            create_journal: 仕訳を作成, none: 何もしない'
+        is_active:
+          type: boolean
+          default: true
+          example: true
+          description: 使用フラグ

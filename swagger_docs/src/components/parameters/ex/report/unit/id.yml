@@ -1,0 +1,10 @@
+---
+components:
+  parameters:
+    ex_report_unit_id:
+      name: ex_report_unit_id
+      in: path
+      description: 集計id
+      required: true
+      schema:
+        type: string

@@ -1,0 +1,10 @@
+---
+components:
+  parameters:
+    ex_transaction_id:
+      name: ex_transaction_id
+      in: path
+      description: 経費明細id
+      required: true
+      schema:
+        type: string

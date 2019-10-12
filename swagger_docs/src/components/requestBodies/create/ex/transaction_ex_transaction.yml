@@ -1,0 +1,12 @@
+---
+components:
+  requestBodies:
+    create_ex_transactionExTransaction:
+      content:
+        application/json:
+          schema:
+            properties:
+              ex_transaction:
+                "$ref": "#/components/schemas/ExTransactionCreateInput"
+      description: 経費明細のパラメータ
+      required: true

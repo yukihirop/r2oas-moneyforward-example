@@ -1,0 +1,10 @@
+---
+components:
+  requestBodies:
+    ReceiptInput:
+      content:
+        application/json:
+          schema:
+            "$ref": "#/components/schemas/ReceiptInput"
+      description: 領収書像データ
+      required: true

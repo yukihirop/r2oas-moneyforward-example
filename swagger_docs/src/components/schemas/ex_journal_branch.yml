@@ -1,0 +1,21 @@
+---
+components:
+  schemas:
+    ExJournalBranch:
+      properties:
+        branch_number:
+          min: 1
+          example: 100
+          description: 行番号
+          nullable: true
+          type: integer
+        remark:
+          maxLength: 1000
+          description: 摘要
+          nullable: true
+          type: string
+        journal_branch_sides:
+          type: array
+          description: 仕訳貸借
+          items:
+            "$ref": "#/components/schemas/ExJournalBranchSide"

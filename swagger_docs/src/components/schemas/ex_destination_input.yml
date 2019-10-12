@@ -1,0 +1,86 @@
+---
+components:
+  schemas:
+    ExDestinationInput:
+      properties:
+        name:
+          type: string
+          maxLength: 40
+          uniqueItems: true
+          example: A商店
+          description: 名称
+        code:
+          type: string
+          maxLength: 50
+          uniqueItems: true
+          example: A001
+          description: 支払先コード
+        pay_day:
+          type: integer
+          minimum: 1
+          maximum: 31
+          example: 31
+          description: 支払日（月末は31）
+        number_of_months_later:
+          type: integer
+          minimum: 0
+          maximum: 3
+          example: 1
+          description: 支払が通常請求書を受け取ったタイミングから何ヶ月後か
+        exclude_holiday_kind:
+          type: integer
+          enum:
+          - 0
+          - 1
+          - 2
+          example: 1
+          description: 休日調整（0:調整しない, 1:前倒し, 2:後ろ倒し
+        is_withholding_tax:
+          type: boolean
+          default: false
+          example: false
+          description: 源泉徴収対象支払先かどうか
+        default_ex_item_id:
+          type: string
+          maxLength: 40
+          description: デフォルト経費科目id
+        default_cr_item_id:
+          type: string
+          maxLength: 40
+          description: デフォルト貸方科目id
+        default_cr_sub_item_id:
+          type: string
+          maxLength: 40
+          description: デフォルト貸方補助科目id
+        default_dept_id:
+          type: string
+          maxLength: 40
+          description: デフォルト部門id
+        default_project_code_id:
+          type: string
+          maxLength: 40
+          description: デフォルトプロジェクトid
+        withholding_tax_cr_item_id:
+          type: string
+          maxLength: 40
+          description: デフォルト源泉徴収用貸方科目id
+        withholding_tax_cr_sub_item_id:
+          type: string
+          maxLength: 40
+          description: デフォルト源泉徴収用貸方補助科目id
+        is_tax_include:
+          type: boolean
+          default: false
+          example: false
+          description: 税込入力フラグ
+        is_active:
+          type: boolean
+          default: true
+          example: true
+          description: 表示フラグ。オフで新規の登録等の選択肢に表示されなくなります
+        priority:
+          type: integer
+          minimum: 0
+          maximum: 9999
+          default: 100
+          description: 表示優先順（昇順）

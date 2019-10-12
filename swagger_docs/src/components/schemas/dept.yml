@@ -1,0 +1,44 @@
+---
+components:
+  schemas:
+    Dept:
+      required:
+      - name
+      properties:
+        id:
+          type: string
+          uniqueItems: true
+          maxLength: 40
+          description: 部門id
+        name:
+          type: string
+          maxLength: 40
+          uniqueItems: true
+          example: 営業部
+          description: 部門名称
+        memo:
+          type: string
+          maxLength: 200
+          description: メモ
+        code:
+          type: string
+          maxLength: 20
+          description: コード
+        disp_order:
+          type: integer
+          default: 0
+          maximum: 65534
+          description: 表示優先順（昇順）
+        is_active:
+          type: boolean
+          default: true
+          example: true
+          description: 表示フラグをオフで新規の経費登録等の選択肢に表示されなくなります
+        parent_id:
+          type: string
+          maxLength: 40
+          description: 親部門id
+        root_id:
+          type: string
+          maxLength: 40
+          description: 最上位親部門id

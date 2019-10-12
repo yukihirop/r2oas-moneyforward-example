@@ -1,0 +1,62 @@
+---
+components:
+  schemas:
+    ExReport:
+      required:
+      - id
+      properties:
+        id:
+          type: string
+          uniqueItems: true
+          maxLength: 40
+          description: 申請id
+        ex_report_type_id:
+          type: string
+          maxLength: 40
+          description: 申請種類id
+        office_member_id:
+          type: string
+          maxLength: 40
+          description: メンバーid
+        number:
+          type: integer
+          minimum: 1
+          maximum: 4294967295
+          description: 申請番号
+        title:
+          type: string
+          maxLength: 100
+          description: タイトル
+        submitted_at:
+          type: datetime
+          example: 2019-10-04 18:44:39.271000000 +09:00
+          description: 申請日時
+        approved_at:
+          type: datetime
+          example: 2019-10-04 18:44:39.271000000 +09:00
+          description: 承認日時
+        created_at:
+          type: datetime
+          example: 2019-10-04 18:44:39.271000000 +09:00
+          description: 登録日時
+        updated_at:
+          type: datetime
+          example: 2019-10-04 18:44:39.271000000 +09:00
+          description: 更新日時
+        status:
+          type: string
+          enum:
+          - unsubmitted
+          - waiting_step_one
+          - waiting_step_two
+          - waiting_step_three
+          - waiting_step_four
+          - waiting_step_five
+          - approved
+          - paid
+          - canceled
+          - rejected
+          description: 'unsubmitted: 下書き, waiting_step_one: 第一承認待ち, waiting_step_two:
+            第二承認待ち, waiting_step_three: 第三承認待ち, waiting_step_four: 第四承認待ち, waiting_step_five:
+            第五承認待ち, approved: 承認済み, paid: 支払済み, canceled: 取消済み, rejected: 却下済み'
+          example: approved

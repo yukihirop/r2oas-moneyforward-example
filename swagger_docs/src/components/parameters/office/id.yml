@@ -1,0 +1,10 @@
+---
+components:
+  parameters:
+    office_id:
+      name: office_id
+      in: path
+      description: 事業所id
+      required: true
+      schema:
+        type: string

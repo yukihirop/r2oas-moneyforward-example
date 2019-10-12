@@ -1,0 +1,26 @@
+---
+components:
+  schemas:
+    Excise:
+      required:
+      - id
+      properties:
+        id:
+          type: string
+          uniqueItems: true
+          maxLength: 40
+          description: 税区分id
+        long_name:
+          type: string
+          maxLength: 100
+          example: 課税仕入 8%
+        code:
+          type: string
+          maxLength: 20
+          example: 税区分コード
+        rate:
+          type: float
+          default: 
+          example: 0.08
+          maximum: 1
+          description: 税率

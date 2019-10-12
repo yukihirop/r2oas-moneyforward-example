@@ -1,0 +1,16 @@
+---
+components:
+  securitySchemes:
+    mf_expense_oauth:
+      type: oauth2
+      flows:
+        authorizationCode:
+          authorizationUrl: "/oauth/authorize"
+          tokenUrl: "/oauth/token"
+          scopes:
+            office_setting:write: 事業所の設定から、事業所のメンバーの設定まで管理できる権限
+            user_setting:write: ユーザー自身の設定を管理できる権限
+            transaction:write: 経費明細の読み書きができる権限
+            report:write: 申請の読み書きができる権限
+            account:write: 口座・カードの管理が出来る権限
+            public_resource:read: 公開リソースを読み込む権限

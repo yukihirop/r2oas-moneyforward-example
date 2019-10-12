@@ -1,0 +1,28 @@
+---
+components:
+  schemas:
+    Item:
+      required:
+      - id
+      properties:
+        id:
+          type: string
+          uniqueItems: true
+          maxLength: 40
+          description: 勘定科目id
+        excise_id:
+          type: string
+          maxLength: 40
+          description: 税区分id
+        name:
+          type: string
+          maxLength: 20
+          uniqueItems: true
+          example: 勘定科目名称
+          description: 勘定科目名称
+        code:
+          type: string
+          maxLength: 20
+          uniqueItems: true
+          example: item-code-xxx
+          description: 勘定科目コード

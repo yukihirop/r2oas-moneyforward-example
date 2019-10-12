@@ -1,0 +1,29 @@
+---
+components:
+  schemas:
+    ReceiptInput:
+      required:
+      - content
+      - content_type
+      - filename
+      properties:
+        content:
+          type: string
+          description: 領収書画像バイナリをBase64エンコードしたもの
+        content_type:
+          type: string
+          example: image/png
+          description: 領収書画像ファイルのcontent type（MIME type）
+        filename:
+          type: string
+          description: 領収書画像ファイルのファイル名
+        process_type:
+          type: string
+          enum:
+          - '0'
+          - '1'
+          - '2'
+          description: 0:何もしない、1:オペレーター入力, 2:OCR処理, 指定なしの場合何もしない
+        split_pdf:
+          type: boolean
+          description: trueの場合にPDFファイルであればページ分割をする

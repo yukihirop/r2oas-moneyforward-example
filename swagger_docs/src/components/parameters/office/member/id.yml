@@ -1,0 +1,10 @@
+---
+components:
+  parameters:
+    office_member_id:
+      name: office_member_id
+      in: path
+      description: メンバーid
+      required: true
+      schema:
+        type: string

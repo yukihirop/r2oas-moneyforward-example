@@ -1,0 +1,10 @@
+---
+components:
+  parameters:
+    page:
+      name: page
+      in: query
+      description: ページ番号
+      required: false
+      schema:
+        type: integer

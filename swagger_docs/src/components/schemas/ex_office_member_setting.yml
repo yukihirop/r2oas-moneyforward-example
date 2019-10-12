@@ -1,0 +1,32 @@
+---
+components:
+  schemas:
+    ExOfficeMemberSetting:
+      required:
+      - id
+      properties:
+        id:
+          type: string
+          uniqueItems: true
+          maxLength: 40
+          description: 経費メンバー設定id
+        use_agent:
+          type: boolean
+          description: 代理承認オンフラグ
+          default: false
+        approving_priority:
+          type: integer
+          description: 承認優先順位
+          minimum: 1
+          less_than_or_equal_to: 65535
+          default: 'null'
+        default_cr_item:
+          "$ref": "#/components/schemas/Item"
+        default_cr_sub_item:
+          "$ref": "#/components/schemas/SubItem"
+        default_transportation_ex_item:
+          "$ref": "#/components/schemas/ExItem"
+        default_driving_expense_ex_item:
+          "$ref": "#/components/schemas/ExItem"
+        default_project_code:
+          "$ref": "#/components/schemas/Dept"

@@ -1,0 +1,10 @@
+---
+components:
+  parameters:
+    id:
+      name: id
+      in: path
+      description: id
+      required: true
+      schema:
+        type: string

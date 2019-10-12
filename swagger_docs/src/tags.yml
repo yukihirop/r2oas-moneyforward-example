@@ -1,0 +1,30 @@
+---
+tags:
+- name: office
+  description: 事業所
+- name: ex_transaction
+  description: 経費明細
+- name: ex_report
+  description: 申請
+- name: ex_report_unit
+  description: 集計
+- name: office_member
+  description: 事業所メンバー
+- name: ex_office_member_setting
+  description: メンバーの経費設定
+- name: dept
+  description: 部門
+- name: project_code
+  description: プロジェクト
+- name: position
+  description: 役職
+- name: e_doc
+  description: 電帳法書類
+- name: ex_item
+  description: 経費科目
+- name: excise
+  description: 税区分
+- name: ex_destination
+  description: 支払先マスタ
+- name: ex_invoice_transaction
+  description: 支払明細

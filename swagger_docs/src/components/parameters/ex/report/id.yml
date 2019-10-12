@@ -1,0 +1,10 @@
+---
+components:
+  parameters:
+    ex_report_id:
+      name: ex_report_id
+      in: path
+      description: 申請id
+      required: true
+      schema:
+        type: string

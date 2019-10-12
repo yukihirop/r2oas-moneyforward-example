@@ -1,0 +1,12 @@
+---
+components:
+  requestBodies:
+    create_ex_destinationExDestination:
+      content:
+        application/json:
+          schema:
+            properties:
+              ex_destination:
+                "$ref": "#/components/schemas/ExDestinationInput"
+      description: プロジェクトのパラメータ
+      required: true

@@ -1,0 +1,24 @@
+---
+components:
+  schemas:
+    PositionInput:
+      required:
+      - name
+      properties:
+        name:
+          type: string
+          maxLength: 255
+          uniqueItems: true
+          example: 部長
+          description: 役職名称
+        is_authorizer:
+          type: boolean
+          example: true
+          default: false
+          description: 承認権限がデフォルトかどうか
+        priority:
+          type: integer
+          minimum: 1
+          maximum: 65534
+          default: 100
+          description: 表示優先順（昇順）

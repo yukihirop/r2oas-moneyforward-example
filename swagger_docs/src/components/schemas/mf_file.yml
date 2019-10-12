@@ -1,0 +1,40 @@
+---
+components:
+  schemas:
+    MfFile:
+      required:
+      - id
+      - name
+      - byte_size
+      - content_type
+      - created_at
+      - updated_at
+      properties:
+        id:
+          type: string
+          uniqueItems: true
+          maxLength: 40
+          description: MFファイルid
+        name:
+          type: string
+          maxLength: 100
+          example: 領収書
+          description: ファイル名
+        byte_size:
+          type: long
+          example: 270800
+          minimum: 0
+          maximum: 9223372036854776000
+          description: バイトサイズ
+        content_type:
+          type: string
+          maxLength: 255
+          description: コンテントタイプ
+        created_at:
+          type: datetime
+          example: 2019-10-04 18:44:39.000000000 +09:00
+          description: 登録日時
+        updated_at:
+          type: datetime
+          example: 2019-10-04 18:44:39.000000000 +09:00
+          description: 更新日時

@@ -1,0 +1,39 @@
+---
+components:
+  schemas:
+    Attendant:
+      required:
+      - id
+      - name
+      - company_name
+      - is_own_company
+      properties:
+        id:
+          type: string
+          maxLength: 40
+          uniqueItems: true
+          description: 出席者id
+        name:
+          type: string
+          maxLength: 100
+          example: 山田太郎
+          description: 氏名
+        company_name:
+          type: string
+          maxLength: 100
+          example: A株式会社
+          description: 会社名
+        department_name:
+          type: string
+          maxLength: 100
+          example: 営業部
+          description: 部門名
+        position_name:
+          type: string
+          maxLength: 100
+          example: 部長
+          description: 役職
+        is_own_company:
+          type: boolean
+          example: false
+          description: 自社/他社フラグ

@@ -1,0 +1,41 @@
+---
+components:
+  schemas:
+    OfficeMemberUpdateInput:
+      properties:
+        name:
+          type: string
+          maxLength: 20
+          description: メンバー名
+        number:
+          type: string
+          uniqueItems: true
+          maxLength: 50
+          description: 従業員番号
+        permission_role_id:
+          type: integer
+          enum:
+          - 201
+          - 202
+          - 203
+          description: 201:一般利用者、202:承認者, 203:管理者
+        depts_attributes:
+          type: array
+          description: メンバーの所属部門リストパラメータ
+          items:
+            type: object
+            properties:
+              id:
+                type: string
+                uniqueItems: true
+                maxLength: 40
+                description: 部門id
+        position_attributes:
+          type: object
+          description: 役職パラメータ
+          properties:
+            id:
+              type: string
+              uniqueItems: true
+              maxLength: 40
+              description: 役職id

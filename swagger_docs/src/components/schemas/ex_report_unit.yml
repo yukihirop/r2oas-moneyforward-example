@@ -1,0 +1,37 @@
+---
+components:
+  schemas:
+    ExReportUnit:
+      required:
+      - id
+      properties:
+        id:
+          type: string
+          uniqueItems: true
+          maxLength: 40
+          description: 集計id
+        office_id:
+          type: string
+          maxLength: 40
+          description: メンバーid
+        number:
+          type: integer
+          minimum: 1
+          maximum: 4294967295
+          description: 集計番号
+        title:
+          type: string
+          maxLength: 100
+          description: タイトル
+        payment_date:
+          type: date
+          example: 2019-10-04
+          description: 支払日
+        created_at:
+          type: datetime
+          example: 2019-10-04 18:44:41.096000000 +09:00
+          description: 登録日時
+        updated_at:
+          type: datetime
+          example: 2019-10-04 18:44:41.096000000 +09:00
+          description: 更新日時

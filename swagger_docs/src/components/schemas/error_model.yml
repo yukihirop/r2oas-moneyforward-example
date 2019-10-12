@@ -1,0 +1,10 @@
+---
+components:
+  schemas:
+    ErrorModel:
+      properties:
+        messages:
+          type: array
+          description: エラーメッセージ
+          items:
+            type: string

@@ -1,0 +1,44 @@
+---
+components:
+  schemas:
+    ProjectCode:
+      required:
+      - code
+      - name
+      properties:
+        id:
+          type: string
+          maxLength: 40
+          uniqueItems: true
+          description: プロジェクトid
+        name:
+          type: string
+          maxLength: 100
+          uniqueItems: true
+          example: 本社移転プロジェクト
+          description: プロジェクト名称
+        code:
+          type: string
+          maxLength: 30
+          uniqueItems: true
+          example: project-code-001
+          description: プロジェクトコード
+        priority:
+          type: integer
+          minimum: 0
+          maximum: 16777215
+          default: 100
+          description: 表示優先順（昇順）
+        is_active:
+          type: boolean
+          default: true
+          example: true
+          description: 表示フラグをオフで新規の経費登録等の選択肢に表示されなくなります
+        parent_id:
+          type: string
+          maxLength: 40
+          description: 親プロジェクトid
+        root_id:
+          type: string
+          maxLength: 40
+          description: 最上位プロジェクトid

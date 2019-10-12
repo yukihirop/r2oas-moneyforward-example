@@ -1,0 +1,62 @@
+---
+components:
+  schemas:
+    ExJournalBranchSide:
+      properties:
+        item_id:
+          maxLength: 40
+          description: 勘定科目id
+          nullable: true
+          type: string
+        sub_item_id:
+          maxLength: 40
+          description: 補助科目id
+          nullable: true
+          type: string
+        excise_id:
+          maxLength: 40
+          description: 税区分id
+          nullable: true
+          type: string
+        dept_id:
+          maxLength: 40
+          description: 部門id
+          nullable: true
+          type: string
+        project_code_id:
+          maxLength: 40
+          description: プロジェクトid
+          nullable: true
+          type: string
+        ex_destination_id:
+          maxLength: 40
+          description: 支払先id
+          nullable: true
+          type: string
+        side:
+          type: integer
+          enum:
+          - 1
+          - -1
+          example: 1
+          description: 借方:1, 貸方:-1
+        value:
+          type: integer
+          example: 10000
+          description: 金額
+        excise_value:
+          type: integer
+          example: 800
+          description: 消費税額
+        item:
+          "$ref": "#/components/schemas/Item"
+        sub_item:
+          "$ref": "#/components/schemas/Item"
+        excise:
+          "$ref": "#/components/schemas/Excise"
+        dept:
+          "$ref": "#/components/schemas/Dept"
+        project_code:
+          "$ref": "#/components/schemas/ProjectCode"
+        ex_destination:
+          "$ref": "#/components/schemas/ExDestination"

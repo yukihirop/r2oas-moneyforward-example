@@ -1,0 +1,51 @@
+---
+components:
+  schemas:
+    ExOfficeMemberSettingInput:
+      properties:
+        use_agent:
+          type: boolean
+          description: 代理承認オンフラグ
+          default: false
+          example: false
+        approving_priority:
+          type: integer
+          description: 承認優先順位
+          minimum: 1
+          less_than_or_equal_to: 65535
+          example: 100
+        id:
+          type: string
+          uniqueItems: true
+          maxLength: 40
+          description: 経費メンバー設定id
+        default_cr_item_id:
+          type: string
+          uniqueItems: true
+          maxLength: 40
+          description: 立替経費デフォルト貸方科目id
+        default_cr_sub_item_id:
+          type: string
+          uniqueItems: true
+          maxLength: 40
+          description: 立替経費デフォルト貸方補助科目id
+        default_transportation_ex_item_id:
+          type: string
+          uniqueItems: true
+          maxLength: 40
+          description: 経路から立替経費登録デフォルト経費科目id
+        default_driving_expense_ex_item_id:
+          type: string
+          uniqueItems: true
+          maxLength: 40
+          description: 移動距離から立替経費登録デフォルト経費科目id
+        default_project_code_id:
+          type: string
+          uniqueItems: true
+          maxLength: 40
+          description: 立替経費デフォルトプロジェクトid
+        default_dept_id:
+          type: string
+          uniqueItems: true
+          maxLength: 40
+          description: 立替経費デフォルト部門id

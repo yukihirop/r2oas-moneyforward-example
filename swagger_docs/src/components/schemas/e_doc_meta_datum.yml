@@ -1,0 +1,125 @@
+---
+components:
+  schemas:
+    EDocMetaDatum:
+      required:
+      - id
+      - number
+      - name
+      - document_type_text
+      - timestamp_serial
+      - timestamp_at
+      - timestamp_version
+      - timestamp_station_name
+      - timestamp_expires_at
+      properties:
+        id:
+          type: string
+          uniqueItems: true
+          maxLength: 40
+          description: e_doc id
+        number:
+          type: long
+          example: 123
+          description: 書類番号（シーケンスで採番）
+        business_partner_name:
+          type: string
+          maxLength: 100
+          example: 日本交通
+          description: 支払先
+        trade_date:
+          type: date
+          example: 2019-10-04
+          description: 取引日
+        amount:
+          type: float
+          minimum: 0.001
+          maximum: 999999999999.999
+          description: 取引金額
+        ex_transactionable_type_text:
+          type: string
+          maxLength: 10
+          enum:
+          - 経費明細
+          - その他の申請の明細
+          - 支払依頼
+          example: 経費明細
+          description: 明細または申請種別
+        ex_transactionable_number:
+          type: integer
+          example: 123
+          description: 明細または申請番号
+        name:
+          type: string
+          maxLength: 100
+          example: 領収書
+          description: ファイル名
+        document_type_text:
+          type: string
+          maxLength: 3
+          enum:
+          - 領収書
+          - 請求書
+          example: 領収書
+          description: 書類の種類
+        image_width:
+          type: integer
+          example: 200
+          description: 画像サイズ幅（ピクセル）
+        image_height:
+          type: integer
+          example: 300
+          description: 画像サイズ縦（ピクセル）
+        page_width:
+          type: float
+          example: 595
+          description: ページサイズ幅（ポイント）
+        page_height:
+          type: float
+          example: 414
+          description: ページサイズ縦（ピクセル）
+        iso216_paper_size:
+          type: string
+          maxLength: 5
+          example: A4
+          description: ページサイズ(ISO216規格)
+        dpi:
+          type: integer
+          example: 200
+          description: 解像度（dpi）
+        image_depth:
+          type: integer
+          example: 256
+          description: 階調（色）
+        timestamp_serial:
+          type: long
+          example: 9999999999999
+          description: タイムスタンプシリアル番号
+        timestamp_at:
+          type: datetime
+          example: 2019-10-04 18:44:41.000000000 +09:00
+          description: タイムスタンプ時刻
+        timestamp_version:
+          type: integer
+          example: 1
+          description: タイムスタンプバージョン
+        timestamp_station_name:
+          type: string
+          maxLength: 255
+          example: C=JP;S=Kanagawa;L=Yokohama;O=AMANO Corporation;OU=e-timing TSA;OU=Thales
+            TSS ESN:EC0B-3BA8-XXXX;CN=dseXXX-XXX
+          description: タイムスタンプ局情報
+        timestamp_expires_at:
+          type: datetime
+          example: 2029-10-04 18:44:41.000000000 +09:00
+          description: タイムスタンプ有効期限
+        scan_office_member_name:
+          type: string
+          maxLength: 20
+          example: 山田　太郎
+          description: 登録者氏名
+        scan_office_member_number:
+          type: string
+          maxLength: 50
+          example: '0000153'
+          description: 登録者番号
