@@ -49,6 +49,7 @@ group :development do
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'r2-oas', git: 'git@github.com:yukihirop/r2-oas.git', tag: 'v0.1.0.pre3'
+  gem 'pry-rails'
 end
 
 group :test do
