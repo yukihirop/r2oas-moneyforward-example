@@ -25,7 +25,7 @@ OpenAPI(V3)形式に変換したAPIドキュメントが `moneyforward.yaml` と
 ### 分析・分解
 
 ```bash
-$ SWAGGER_FILE=./moneyforward.yaml bundle exec rake routes:oas:analyze
+$ OAS_FILE=./moneyforward.yaml bundle exec rake routes:oas:analyze
 ```
 
 ### SwaggerUIで表示
