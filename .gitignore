@@ -26,4 +26,4 @@
 # Ignore master key for decrypting credentials and more.
 /config/master.key
 
-/oas_docs/swagger_doc.yml
+/oas_docs/oas_doc.yml
